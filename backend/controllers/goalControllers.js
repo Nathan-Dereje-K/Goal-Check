@@ -1,4 +1,6 @@
-const getGoals = (req, res) => {
+const asyncHandler = require("express-async-handler");
+
+const getGoals = asyncHandler(async (req, res) => {
   res.status(200).json({
     goals: [
       {
@@ -21,9 +23,9 @@ const getGoals = (req, res) => {
       },
     ],
   });
-};
+});
 
-const setGoal = (req, res) => {
+const setGoal = asyncHandler(async (req, res) => {
   if (!req.body.Text) {
     res.status(400);
     throw new Error("Please add a valid goal");
@@ -31,19 +33,19 @@ const setGoal = (req, res) => {
   res.status(201).json({
     message: "New goal created",
   });
-};
+});
 
-const updateGoal = (req, res) => {
+const updateGoal = asyncHandler(async (req, res) => {
   res.status(200).json({
     message: `updated goal  ${req.params.id}`,
   });
-};
+});
 
-const deleteGoal = (req, res) => {
+const deleteGoal = asyncHandler(async (req, res) => {
   res.status(200).json({
     message: `Deleted goal  ${req.params.id}`,
   });
-};
+});
 
 module.exports = {
   getGoals,
