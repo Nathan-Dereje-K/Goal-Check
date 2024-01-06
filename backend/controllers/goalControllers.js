@@ -13,6 +13,7 @@ const setGoal = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Please add a valid goal");
   }
+  // Create goal
   const goal = await Goals.create({
     text: req.body.text,
   });
