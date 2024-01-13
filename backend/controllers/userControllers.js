@@ -1,4 +1,4 @@
-// Functions registerUser, loginUser , and getMe
+// Functions: registerUser, loginUser , and getMe
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
@@ -15,17 +15,17 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const userExist = await User.findOne({ email });
 
-  // Check if user exist
+  //- Check if user exist
   if (userExist) {
     res.status(400);
     throw new Error("Email already in use");
   }
 
-  // Hashing the password
+  //-- Hashing the password
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  // Create a new user
+  //--- Create a new user
   const user = await User.create({
     name,
     email,
