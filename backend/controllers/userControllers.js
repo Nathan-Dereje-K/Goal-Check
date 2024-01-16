@@ -71,8 +71,11 @@ const loginUser = asyncHandler(async (req, res) => {
 
 //getMe
 const getMe = asyncHandler(async (req, res) => {
+  const { _id, name, email } = await User.findById(req.user.id);
   res.status(200).json({
-    message: "Dispaly user data",
+    id: _id,
+    name,
+    email,
   });
 });
 module.exports = { registerUser, loginUser, getMe };
