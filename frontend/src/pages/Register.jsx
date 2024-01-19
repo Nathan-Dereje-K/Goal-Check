@@ -12,55 +12,82 @@ function Register() {
   const { name, email, password, password2 } = formData;
 
   const onChange = (e) => {
-    setFormData(() => e.target.value);
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const onClick = () => {
+    alert("New user Registered!");
   };
 
   return (
-    <section className="heading">
-      <h1>
-        <FaUser />
-        Register
-      </h1>
-      <p>Please create an account!</p>
+    <>
+      <section className="heading">
+        <h1>
+          <FaUser /> Register
+        </h1>
+        <p>Create a new account</p>
+      </section>
       <section className="form">
-        <form className="form-control">
+        <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
               type="text"
               id="name"
+              name="name"
               required
-              placeholder="Please, enter your Username."
+              placeholder="Username"
               value={name}
               onChange={onChange}
             />
+          </div>
+          <div className="form-group">
             <input
               type="email"
               id="name"
+              name="email"
               required
-              placeholder="Please, enter your email."
+              placeholder="Email"
               value={email}
               onChange={onChange}
             />
+          </div>
+          <div className="form-group">
             <input
               type="password"
               id="name"
+              name="password"
               required
-              placeholder="Please, enter your password."
+              placeholder="Password"
               value={password}
               onChange={onChange}
             />
+          </div>
+          <div className="form-group">
             <input
               type="password"
               id="name"
+              name="password2"
               required
-              placeholder="Please, Confirm your password."
+              placeholder="Confirm your password"
               value={password2}
               onChange={onChange}
             />
           </div>
+          <div className="form-group">
+            <button type="submit" className="btn btn-block">
+              Submit
+            </button>
+          </div>
         </form>
       </section>
-    </section>
+    </>
   );
 }
 
