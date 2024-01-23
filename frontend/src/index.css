@@ -164,6 +164,11 @@ h3 {
   width: 100%;
   margin-bottom: 20px;
 }
+.btn-block-var {
+  width: 30%;
+  margin-bottom: 20px;
+  margin-left: auto;
+}
 
 .btn:hover {
   transform: scale(0.98);

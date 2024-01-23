@@ -59,13 +59,17 @@ function Login() {
           </div>
 
           <div className="form-group">
-            <button type="submit" className="btn btn-block">
+            <button type="submit" className="btn btn-block-var">
               Submit
             </button>
           </div>
         </form>
         <p>
-          New to Goal Setter? <Link to="/register">Register</Link>
+          New to Goal Setter?{" "}
+          <Link to="/register">
+            {" "}
+            <strong>Register</strong>
+          </Link>
         </p>
       </section>
     </>
